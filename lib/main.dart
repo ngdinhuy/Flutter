@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:demo_app/Coin.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:intl/intl.dart';
 import 'NetworkRequest.dart';
 import 'Message.dart';

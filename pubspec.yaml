@@ -39,6 +39,7 @@ dependencies:
   sqflite: any
   path_provider: any
   intl: any
+  flutter_windowmanager: any
 
 dev_dependencies:
   flutter_test:
