@@ -39,9 +39,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState();
 
-  String typeCoin = "";
-  String price = "";
-  String rateFloat = "";
+  String countryName = "";
+  String as = "";//nhà mạng
+  String ip = "";
   TextEditingController textController = TextEditingController();
   // List<Message> messages = [];
 
@@ -92,24 +92,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    typeCoin,
+                    countryName,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         color: Color.fromARGB(255, 0, 0, 0), fontSize: 13),
                   ),
                   Text(
-                    price,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 13),
-                  ),
-                  Text(
-                    rateFloat,
+                    as,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         color: Color.fromARGB(255, 0, 0, 0), fontSize: 13),
                   ),
                 ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
+              child: Text(
+                ip,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0), fontSize: 13),
               ),
             ),
             Container(
@@ -216,10 +220,9 @@ class _MyHomePageState extends State<MyHomePage> {
     NestworkRequest.getCoinApi().then((dataFromServer) => {
           setState(() {
             if (dataFromServer != null) {
-              typeCoin = dataFromServer.chartName.toString();
-              price = 'Price: ${dataFromServer.bpi?.usd?.rate ?? ""}';
-              rateFloat =
-                  'Rate Float: ${dataFromServer.bpi?.usd?.rateFloat.toString()}';
+              countryName = 'Country :${dataFromServer.country_name.toString()}';
+              as = 'Network provider: ${dataFromServer.as}';
+              ip = 'Ip: ${dataFromServer.ip}';
             }
           })
         });
